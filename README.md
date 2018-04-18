@@ -28,7 +28,7 @@
 
 *Note:* This is a private copy of vim-emu. Adjusted to properly use link delays for computing shortest paths.
 
-Add with `git remote add gh git@github.com:StefanUPB/vim-emu.git`. Then use with `pull gh` and `push gh`.
+Add with `git remote add gh git@github.com:StefanUPB/vim-emu.git`. Then use with `pull gh master` and `push gh`.
 
 
 # vim-emu: A NFV multi-PoP emulation platform
