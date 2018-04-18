@@ -631,12 +631,22 @@ class DCNetwork(Containernet):
                     break
 
         path = kwargs.get('path')
+        
+        
         if path is None:
             # get shortest path
             try:
                 # returns the first found shortest path
                 # if all shortest paths are wanted, use: all_shortest_paths
-                path = nx.shortest_path(self.DCNetwork_graph, src_sw, dst_sw, weight=kwargs.get('weight'))
+                # path = nx.shortest_path(self.DCNetwork_graph, src_sw, dst_sw, weight=kwargs.get('weight'))
+
+                # adjustment: transform delays to int (on copied graph) and use them for computing shortest paths
+                g = self.DCNetwork_graph.copy()
+                edge_delays = nx.get_edge_attributes(g, 'delay')
+                int_delays = {k: int(v) for (k, v) in edge_delays.items()}
+                nx.set_edge_attributes(g, 'delay', int_delays)
+                path = nx.shortest_path(g, src_sw, dst_sw, weight='delay')
+                print('Calculated shortest path (for delay): {}'.format(path))
             except:
                 LOG.exception("No path could be found between {0} and {1} using src_sw={2} and dst_sw={3}".format(
                     vnf_src_name, vnf_dst_name, src_sw, dst_sw))

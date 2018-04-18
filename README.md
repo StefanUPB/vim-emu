@@ -26,6 +26,11 @@
 # partner consortium (www.sonata-nfv.eu).
 -->
 
+*Note:* This is a private copy of vim-emu. Adjusted to properly use link delays for computing shortest paths.
+
+Add with `git remote add gh git@github.com:StefanUPB/vim-emu.git`. Then use with `pull gh` and `push gh`.
+
+
 # vim-emu: A NFV multi-PoP emulation platform
 
 This emulation platform was created to support network service developers to locally prototype and test their network services in realistic end-to-end multi-PoP scenarios. It allows the execution of real network functions, packaged as Docker containers, in emulated network topologies running locally on the developer's machine. The emulation platform also offers OpenStack-like APIs for each emulated PoP so that it can integrate with MANO solutions, like OSM. The core of the emulation platform is based on [Containernet](https://containernet.github.io).
